@@ -1,0 +1,28 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Package module
+        run: |
+          mkdir -p dist/sidcontrol
+          cp src/module.json dist/sidcontrol/
+          cp src/ui.js dist/sidcontrol/
+          cd dist
+          tar -czvf ../sidcontrol-module.tar.gz sidcontrol/
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: sidcontrol-module.tar.gz
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
