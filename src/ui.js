@@ -10,7 +10,7 @@ import {
     MoveShift, MoveSteps, MovePads,
     MoveKnob1, MoveKnob2, MoveKnob3, MoveKnob4,
     MoveKnob5, MoveKnob6, MoveKnob7, MoveKnob8,
-    White, Black, Pink, BrightPink
+    White, Black, Rose, BrightPink
 } from '../../shared/constants.mjs';
 
 import {
@@ -131,7 +131,7 @@ const PAD_START_NOTE = 36;  /* C2 */
 function getPadColor(padIndex) {
     const note = PAD_START_NOTE + padIndex;
     const isC = (note % 12) === 0;
-    return isC ? BrightPink : Pink;
+    return isC ? BrightPink : Rose;
 }
 
 function initPadColors() {

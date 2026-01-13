@@ -15,15 +15,8 @@ fi
 
 echo "=== Installing SIDControl Module ==="
 
-MOVE_HOST="${MOVE_HOST:-move.local}"
-MOVE_USER="${MOVE_USER:-root}"
-INSTALL_DIR="/data/UserData/move-anything/modules"
-
-echo "Deploying to $MOVE_USER@$MOVE_HOST..."
-
-# Remove old version and copy new
-ssh "$MOVE_USER@$MOVE_HOST" "rm -rf $INSTALL_DIR/sidcontrol"
-scp -r dist/sidcontrol "$MOVE_USER@$MOVE_HOST:$INSTALL_DIR/"
+echo "Copying module to Move..."
+scp -r dist/sidcontrol ableton@move.local:/data/UserData/move-anything/modules/
 
 echo ""
 echo "=== Install Complete ==="
