@@ -162,7 +162,7 @@ function sendNoteOn(note, velocity) {
 }
 
 function sendNoteOff(note) {
-    move_midi_external_send([0x28, 0x80, note, 0]);
+    move_midi_external_send([0x29, 0x80, note, 0]);
 }
 
 /* === Display === */
