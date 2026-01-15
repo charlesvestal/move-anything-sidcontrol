@@ -18,6 +18,10 @@ echo "=== Installing SIDControl Module ==="
 echo "Copying module to Move..."
 scp -r dist/sidcontrol ableton@move.local:/data/UserData/move-anything/modules/
 
+# Set permissions so Module Store can update later
+echo "Setting permissions..."
+ssh ableton@move.local "chmod -R a+rw /data/UserData/move-anything/modules/sidcontrol"
+
 echo ""
 echo "=== Install Complete ==="
 echo "Restart Move Anything or use host_rescan_modules() to load."
