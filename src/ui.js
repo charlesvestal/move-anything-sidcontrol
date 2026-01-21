@@ -5,21 +5,22 @@
  * Pads play chromatic notes (C2-G5).
  */
 
+/* Shared utilities - absolute path for module location independence */
 import {
     MidiNoteOn, MidiNoteOff, MidiCC,
     MoveShift, MoveSteps, MovePads,
     MoveKnob1, MoveKnob2, MoveKnob3, MoveKnob4,
     MoveKnob5, MoveKnob6, MoveKnob7, MoveKnob8,
     White, Black, Rose, BrightPink
-} from '../../shared/constants.mjs';
+} from '/data/UserData/move-anything/shared/constants.mjs';
 
 import {
     setLED, clearAllLEDs, decodeAcceleratedDelta
-} from '../../shared/input_filter.mjs';
+} from '/data/UserData/move-anything/shared/input_filter.mjs';
 
 import {
     showOverlay, drawOverlay, tickOverlay, hideOverlay
-} from '../../shared/menu_layout.mjs';
+} from '/data/UserData/move-anything/shared/menu_layout.mjs';
 
 /* === Page Definitions === */
 
