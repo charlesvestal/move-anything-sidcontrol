@@ -15,7 +15,7 @@ import {
 } from '/data/UserData/move-anything/shared/constants.mjs';
 
 import {
-    setLED, clearAllLEDs, decodeAcceleratedDelta
+    setLED, decodeAcceleratedDelta
 } from '/data/UserData/move-anything/shared/input_filter.mjs';
 
 import {
@@ -118,6 +118,11 @@ const pages = [
 let currentPage = 0;
 let shiftHeld = false;
 
+/* Progressive LED init to avoid buffer overflow */
+let ledInitPending = false;
+let ledInitIndex = 0;
+const LEDS_PER_FRAME = 8;
+
 /* Store absolute values for all CCs (0-127) */
 const paramValues = new Array(128).fill(64);
 
@@ -135,9 +140,32 @@ function getPadColor(padIndex) {
     return isC ? BrightPink : Rose;
 }
 
-function initPadColors() {
+function getAllLEDsToInit() {
+    const leds = [];
+    /* Pads (32) */
     for (let i = 0; i < MovePads.length; i++) {
-        setLED(MovePads[i], getPadColor(i));
+        leds.push({ note: MovePads[i], color: getPadColor(i) });
+    }
+    /* Page LEDs (8) */
+    for (let i = 0; i < 8; i++) {
+        leds.push({ note: MoveSteps[i], color: i === currentPage ? White : Black });
+    }
+    return leds;
+}
+
+function setupLedBatch() {
+    const leds = getAllLEDsToInit();
+    const start = ledInitIndex;
+    const end = Math.min(start + LEDS_PER_FRAME, leds.length);
+
+    for (let i = start; i < end; i++) {
+        setLED(leds[i].note, leds[i].color);
+    }
+
+    ledInitIndex = end;
+    if (ledInitIndex >= leds.length) {
+        ledInitPending = false;
+        ledInitIndex = 0;
     }
 }
 
@@ -322,17 +350,22 @@ globalThis.onMidiMessageExternal = function(data) {
 globalThis.init = function() {
     console.log('SID Control starting...');
 
-    clearAllLEDs();
-    initPadColors();
-    updatePageLEDs();
-
     /* Initialize param values to center */
     for (let i = 0; i < 128; i++) {
         paramValues[i] = 64;
     }
+
+    /* Start progressive LED init (host clears LEDs before loading overtake modules) */
+    ledInitPending = true;
+    ledInitIndex = 0;
 };
 
 globalThis.tick = function() {
+    /* Continue progressive LED init if pending */
+    if (ledInitPending) {
+        setupLedBatch();
+    }
+
     tickOverlay();
     drawUI();
 };

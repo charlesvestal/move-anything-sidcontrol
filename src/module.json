@@ -1,7 +1,7 @@
 {
     "id": "sidcontrol",
     "name": "SID Control",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "description": "MIDI controller for SIDaster III synthesizer",
     "author": "charlesvestal",
     "license": "MIT",
@@ -9,6 +9,6 @@
     "api_version": 1,
     "capabilities": {
         "midi_out": true,
-        "component_type": "utility"
+        "component_type": "overtake"
     }
 }
