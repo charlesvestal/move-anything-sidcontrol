@@ -26,7 +26,7 @@ MIDI controller module for [SIDaster III](https://github.com/D4p0up/SIDaster) sy
 
 ### Via Module Store (recommended)
 
-1. Launch Move Anything on your Move
+1. Launch Move Everything on your Move
 2. Select **Module Store**
 3. Find **SID Control** under Utilities
 4. Select **Install**
@@ -41,7 +41,7 @@ MIDI controller module for [SIDaster III](https://github.com/D4p0up/SIDaster) sy
 ## Usage
 
 1. Connect SIDaster to Move's USB-A port
-2. Launch **SID Control** from Move Anything menu
+2. Launch **SID Control** from Move Everything menu
 3. Use **step buttons 1-8** to switch parameter pages
 4. Turn **knobs** to adjust parameters (with acceleration)
 5. Touch **knobs** to preview parameter name
@@ -49,5 +49,12 @@ MIDI controller module for [SIDaster III](https://github.com/D4p0up/SIDaster) sy
 
 ## Requirements
 
-- Move Anything 1.0.0+
+- Move Everything 1.0.0+
 - SIDaster III connected via USB-A
+
+## AI Assistance Disclaimer
+
+This module is part of Move Everything and was developed with AI assistance, including Claude, Codex, and other AI assistants.
+
+All architecture, implementation, and release decisions are reviewed by human maintainers.  
+AI-assisted content may still contain errors, so please validate functionality, security, and license compatibility before production use.
