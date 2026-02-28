@@ -1,0 +1,59 @@
+{
+  "title": "SID Control",
+  "children": [
+    {
+      "title": "Overview",
+      "lines": [
+        "MIDI controller for",
+        "SIDaster III synth.",
+        "",
+        "8 pages of controls",
+        "(64 total CCs) for",
+        "full SIDaster access.",
+        "",
+        "Chromatic pad input",
+        "for note playing.",
+        "",
+        "Requires SIDaster III",
+        "connected via USB."
+      ]
+    },
+    {
+      "title": "Controls",
+      "children": [
+        {
+          "title": "Pages",
+          "lines": [
+            "Step 1-8: select page",
+            "",
+            "Page 1: Global",
+            " Vol, Filter, Mode...",
+            "",
+            "Page 2: Tune",
+            " Per-oscillator tuning",
+            "",
+            "Pages 3-8: OSC 1,",
+            " 1+, 2, 2+, 3, 3+",
+            " Wave, PW, ADSR..."
+          ]
+        },
+        {
+          "title": "Knobs & Pads",
+          "lines": [
+            "Knobs 1-8 control",
+            "8 parameters per",
+            "page (64 total).",
+            "",
+            "Parameter name and",
+            "CC value shown on",
+            "display when editing.",
+            "",
+            "Pads: chromatic",
+            "notes C2-G5 sent",
+            "to SIDaster."
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -15,6 +15,7 @@ mkdir -p dist/sidcontrol
 # Copy files
 echo "Packaging..."
 cp src/module.json dist/sidcontrol/
+[ -f src/help.json ] && cp src/help.json dist/sidcontrol/
 cp src/ui.js dist/sidcontrol/
 
 # Create tarball
